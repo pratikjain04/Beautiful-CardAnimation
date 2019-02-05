@@ -37,7 +37,22 @@ class _UpcomingState extends State<Upcoming> {
                       fontFamily: 'Poppins'
                     ),
                   ),
-                )
+                ),
+                Padding(
+                  padding:
+                  EdgeInsets.only(top: uniHeight / 10, left: uniWidth / 10),
+                  child: Text(
+                    'artifacts',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600,
+                        fontSize: uniWidth / 22,
+                        fontFamily: 'Poppins'
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(top: uniHeight/10)),
+                
               ],
             ),
           ),
