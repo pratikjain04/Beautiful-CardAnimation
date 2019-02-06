@@ -13,6 +13,19 @@ class Upcoming extends StatefulWidget {
 
 class _UpcomingState extends State<Upcoming> {
   static List<String> images = ['assets/dino.png', 'assets/coin.png'];
+  List<String> details = [
+    'Dinosaurs are a diverse group of reptiles of the clade Dinosauria.'
+        ' They first appeared during the Triassic period,'
+        ' between 243 and 233.23 million years ago, although the exact '
+        'origin and timing of the evolution of dinosaurs is the subject of active research.',
+
+    'It is quite possible for a \$500 coin type '
+        'to be worth only \$25, or less, '
+        'if the particular coin is unattractive. It is very '
+        'common for a type worth \$25 in excellent condition '
+        'to be worth less than \$2 in poor condition. '
+        'Vcoins.com is a large ancient-coin "mall."',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +134,7 @@ class _UpcomingState extends State<Upcoming> {
                                     title1: 'Francois',
                                     title2: 'POMPON',
                                     existence: 'AD 1855-1933',
+                                    details: details[0],
                                   );
                                 }));
                               },
@@ -148,6 +162,7 @@ class _UpcomingState extends State<Upcoming> {
                                     title1: 'Alexander the',
                                     title2: 'Molossain',
                                     existence: 'BC 344-322',
+                                    details: details[1],
                                   );
                                 }));
                               },
@@ -206,7 +221,8 @@ class ArtifactBrochure extends StatelessWidget {
       this.type,
       this.title1,
       this.title2,
-      this.existence})
+      this.existence,
+      })
       : super(key: key);
 
   final double uniHeight;
@@ -216,7 +232,6 @@ class ArtifactBrochure extends StatelessWidget {
   final String title1;
   final String title2;
   final String existence;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -251,7 +266,7 @@ class ArtifactBrochure extends StatelessWidget {
             padding: EdgeInsets.only(left: uniWidth / 20),
             child: Text(type,
                 style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.red,
                     fontWeight: FontWeight.w600,
                     fontSize: uniWidth / 30,
                     fontFamily: 'Poppins')),
