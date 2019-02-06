@@ -1,3 +1,4 @@
+import 'package:cardanimation/details.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -11,6 +12,8 @@ class Upcoming extends StatefulWidget {
 }
 
 class _UpcomingState extends State<Upcoming> {
+  static List<String> images = ['assets/dino.png', 'assets/coin.png'];
+
   @override
   Widget build(BuildContext context) {
     final uniWidth = MediaQuery.of(context).size.width;
@@ -106,45 +109,79 @@ class _UpcomingState extends State<Upcoming> {
                           Padding(
                             padding: EdgeInsets.only(left: uniWidth / 7),
                           ),
-                          ArtifactBrochure(
-                            uniHeight: uniHeight,
-                            uniWidth: uniWidth,
-                            image: 'assets/dino.png',
-                            type: 'ancient art',
-                            title1: 'Francois',
-                            title2: 'POMPON',
-                            existence: 'AD 1855-1933',
+                          Hero(
+                            tag: images[0],
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                  return DetailsArtifact(
+                                    image: images[0],
+                                    type: 'ancient art',
+                                    title1: 'Francois',
+                                    title2: 'POMPON',
+                                    existence: 'AD 1855-1933',
+                                  );
+                                }));
+                              },
+                              child: ArtifactBrochure(
+                                uniHeight: uniHeight,
+                                uniWidth: uniWidth,
+                                image: 'assets/dino.png',
+                                type: 'ancient art',
+                                title1: 'Francois',
+                                title2: 'POMPON',
+                                existence: 'AD 1855-1933',
+                              ),
+                            ),
                           ),
                           Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
-                          ArtifactBrochure(
-                            uniHeight: uniHeight,
-                            uniWidth: uniWidth,
-                            image: 'assets/coin.png',
-                            type: 'ancient coin',
-                            title1: 'Alexander the',
-                            title2: 'Molossain',
-                            existence: 'BC 344-322',
+                          Hero(
+                            tag: 'assets/coin.png',
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                  return DetailsArtifact(
+                                    image: 'assets/coin.png',
+                                    type: 'ancient coin',
+                                    title1: 'Alexander the',
+                                    title2: 'Molossain',
+                                    existence: 'BC 344-322',
+                                  );
+                                }));
+                              },
+                              child: ArtifactBrochure(
+                                uniHeight: uniHeight,
+                                uniWidth: uniWidth,
+                                image: 'assets/coin.png',
+                                type: 'ancient coin',
+                                title1: 'Alexander the',
+                                title2: 'Molossain',
+                                existence: 'BC 344-322',
+                              ),
+                            ),
                           ),
-                          Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
-                          ArtifactBrochure(
-                            uniHeight: uniHeight,
-                            uniWidth: uniWidth,
-                            image: 'assets/dino.png',
-                            type: 'ancient art',
-                            title1: 'Francois',
-                            title2: 'POMPON',
-                            existence: 'AD 1855-1933',
-                          ),
-                          Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
-                          ArtifactBrochure(
-                            uniHeight: uniHeight,
-                            uniWidth: uniWidth,
-                            image: 'assets/coin.png',
-                            type: 'ancient coin',
-                            title1: 'Alexander the',
-                            title2: 'Molossain',
-                            existence: 'BC 344-322',
-                          ),
+//                          Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
+//                          ArtifactBrochure(
+//                            uniHeight: uniHeight,
+//                            uniWidth: uniWidth,
+//                            image: 'assets/dino.png',
+//                            type: 'ancient art',
+//                            title1: 'Francois',
+//                            title2: 'POMPON',
+//                            existence: 'AD 1855-1933',
+//                          ),
+//                          Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
+//                          ArtifactBrochure(
+//                            uniHeight: uniHeight,
+//                            uniWidth: uniWidth,
+//                            image: 'assets/coin.png',
+//                            type: 'ancient coin',
+//                            title1: 'Alexander the',
+//                            title2: 'Molossain',
+//                            existence: 'BC 344-322',
+//                          ),
                           Padding(padding: EdgeInsets.only(left: uniWidth / 8)),
                         ],
                       ),
@@ -192,7 +229,7 @@ class ArtifactBrochure extends StatelessWidget {
             BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
                 blurRadius: 10.0,
-                spreadRadius: 25.0),
+                spreadRadius: 20.0),
           ]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
