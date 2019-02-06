@@ -37,13 +37,13 @@ class _DetailsArtifactState extends State<DetailsArtifact>
   void initState() {
     super.initState();
     _previousDetailController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     _amountController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 600));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     _fabController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _detailsController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     _previousAnimation = CurvedAnimation(
         parent: _previousDetailController, curve: Curves.easeIn);
     _amountAnimation = CurvedAnimation(
@@ -174,7 +174,7 @@ class _DetailsArtifactState extends State<DetailsArtifact>
             child: Padding(
               padding: EdgeInsets.only(right: uniWidth / 5),
               child: AnimatedOpacity(
-                duration: Duration(seconds: 1),
+                duration: Duration(milliseconds: 500),
                 opacity: _detailsController.value,
                 curve: Curves.linear,
                 child: Text(widget.details,
@@ -199,7 +199,7 @@ class _DetailsArtifactState extends State<DetailsArtifact>
             translation: Offset(0.25 - _amountController.value * 0.12,
                 0.75 + _amountController.value * 0.1),
             child: AnimatedOpacity(
-              duration: Duration(seconds: 1),
+              duration: Duration(milliseconds: 500),
               opacity: _amountController.value,
               curve: Curves.linear,
               child: Container(
