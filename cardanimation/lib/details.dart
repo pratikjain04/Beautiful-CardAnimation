@@ -31,13 +31,12 @@ class _DetailsArtifactState extends State<DetailsArtifact>
   Animation<double> _previousAnimation;
   Animation<double> _fabAnimation;
   Animation<double> _amountAnimation;
-  double opacityLevel = 1.0;
 
   @override
   void initState() {
     super.initState();
     _previousDetailController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _amountController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     _fabController =
@@ -52,13 +51,11 @@ class _DetailsArtifactState extends State<DetailsArtifact>
         parent: _previousDetailController, curve: Curves.bounceInOut);
 
     setState(() {
-      opacityLevel = opacityLevel == 0 ? 1.0 : 0.0;
-      _previousDetailController.forward().whenComplete(() {
+      _previousDetailController.forward();
         _amountController.forward();
         _detailsController.forward().whenComplete(() {
           _fabController.forward();
         });
-      });
     });
 
     _previousDetailController.addListener(() => setState(() {}));
@@ -174,7 +171,7 @@ class _DetailsArtifactState extends State<DetailsArtifact>
             child: Padding(
               padding: EdgeInsets.only(right: uniWidth / 5),
               child: AnimatedOpacity(
-                duration: Duration(milliseconds: 500),
+                duration: Duration(milliseconds: 200),
                 opacity: _detailsController.value,
                 curve: Curves.linear,
                 child: Text(widget.details,
@@ -199,7 +196,7 @@ class _DetailsArtifactState extends State<DetailsArtifact>
             translation: Offset(0.25 - _amountController.value * 0.12,
                 0.75 + _amountController.value * 0.1),
             child: AnimatedOpacity(
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 400),
               opacity: _amountController.value,
               curve: Curves.linear,
               child: Container(
