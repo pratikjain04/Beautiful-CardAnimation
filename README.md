@@ -1,5 +1,3 @@
 # TestUI
 
-Beautiful Card And Hero Animation.
-
-XOXOXO
+Beautiful Card And Hero Animation. xD
