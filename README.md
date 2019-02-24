@@ -8,4 +8,4 @@ The GIF will be a bit slow during the first iteration because of loading of the 
 
 ### Sample UI: 
 
-![](CardAnimation.gif)
+![](CardAnimation.gif){:height="700px" width="400px"}
